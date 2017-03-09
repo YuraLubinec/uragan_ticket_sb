@@ -1,0 +1,1 @@
+var ticketApp = angular.module('ticketApp', [ 'ngRoute', 'mainPage', 'gameList', 'subscriptionPage', 'sectorPage', 'loginPage', 'navbar' ]);

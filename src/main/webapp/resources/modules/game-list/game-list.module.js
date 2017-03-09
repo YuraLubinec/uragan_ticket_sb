@@ -1,0 +1,1 @@
+var gameList = angular.module('gameList',['ui.bootstrap','ngMaterial','angularMoment','mdPickers']);

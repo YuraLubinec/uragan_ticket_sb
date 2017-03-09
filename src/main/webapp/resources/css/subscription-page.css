@@ -1,0 +1,35 @@
+
+subscription-page .table-th-td{
+   text-align: center;
+   color: white;  
+}
+
+
+subscription-page .add-padding-left{
+  padding-left: 5px;
+}
+subscription-page .not-padding-right{
+  padding-right: 0px;
+}
+
+subscription-page .thA {
+    color: #f3f5f7;
+}
+
+subscription-page  a:hover { 
+   color: rgb(66, 139, 202);
+}
+
+subscription-page .modal-dialog {
+    text-align: left !important;
+}
+
+subscription-page .md-block{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 0px !important;
+}
+
+subscription-page .has-error{
+  color:red;
+}
