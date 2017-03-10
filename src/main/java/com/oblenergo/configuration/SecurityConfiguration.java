@@ -25,8 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
 
     http.authorizeRequests()
-        .antMatchers("/", "/resources/static/templates/login-page.template.html",
-            "/resources/static/templates/navbar.template.html")
+        .antMatchers("/","/templates/login-page.template.html", "/templates/navbar.template.html")
         .permitAll().anyRequest().authenticated().and().exceptionHandling().authenticationEntryPoint(entryPoint).and()
         .formLogin().loginPage("/login").successHandler(successHandler)
         .failureHandler(new SimpleUrlAuthenticationFailureHandler()).loginProcessingUrl("/loginCheck")
@@ -44,12 +43,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   @Override
   public void configure(WebSecurity web) throws Exception {
 
-    web.ignoring().antMatchers("/resources/css/**");
-    web.ignoring().antMatchers("/resources/dist/**");
-    web.ignoring().antMatchers("/resources/images/**");
-    web.ignoring().antMatchers("/resources/modules/**");
-    web.ignoring().antMatchers("/resources/app.config.js");
-    web.ignoring().antMatchers("/resources/app.module.js");
+    web.ignoring().antMatchers("/css/**");
+    web.ignoring().antMatchers("/dist/**");
+    web.ignoring().antMatchers("/images/**");
+    web.ignoring().antMatchers("/modules/**");
+    web.ignoring().antMatchers("/app.config.js");
+    web.ignoring().antMatchers("/app.module.js");
 
   }
 

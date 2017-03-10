@@ -1,0 +1,101 @@
+<!DOCTYPE html">
+<html ng-app="ticketApp" ng-cloak>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<navbar></navbar>
+	<div class="container-fluid">
+		<login-page ng-cloak ng-if="!access"></login-page>
+		<div ng-cloak ng-if="access" ng-view class="view"></div>
+	</div>
+</body>
+
+<!-- Bootstrap -->
+<link href="dist/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="dist/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Page CSS -->
+<link href="css/main-page.css" rel="stylesheet">
+<link href="css/game-list.css" rel="stylesheet">
+<link href="css/login.css" rel="stylesheet">
+<link href="css/subscription-page.css" rel="stylesheet">
+
+<!-- jQuery CSS -->
+<link href="dist/css/jquery/jquery-ui.css" rel="stylesheet">
+
+<!-- Angular Material style sheet  -->
+<link href="css/angular-material/angular-material.min.css" rel="stylesheet"> 
+ 
+<!-- mdPickers CSS -->
+<link href="css/mdPickers/mdPickers.min.css" rel="stylesheet"> 
+
+<!-- jQuery -->
+<script src="dist/jQuery/jquery.min.js"></script>
+<script src="dist/jQuery/jquery.js"></script>
+<script src="dist/jQuery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="dist/bootstrap/js/bootstrap.js"></script>
+
+<!-- Angular JS -->
+<script src="dist/angular/angular.js"></script>
+<script src="dist/angular/angular-resource.js"></script>
+<script src="dist/angular/angular-route.js"></script>
+
+<!-- ui-bootstrap JS -->
+<script src="dist/js/ui-bootstrap/ui-bootstrap.js"></script>
+
+<!-- Angular Material requires libraries -->
+<script src="dist/js/angular-material/angular-animate.min.js"></script>
+<script src="dist/js/angular-material/angular-aria.min.js"></script>
+
+<!-- Angular Material Library -->
+<script src="dist/js/angular-material/angular-material.min.js"></script>
+
+<!-- Angular Moment JS -->
+<script src="dist/js/moment/moment.js"></script>
+<script src="dist/js/moment/angular-moment.js"></script>
+
+<!-- mdPickers -->
+<script src="dist/js/angular-material/mdPickers/mdPickers.min.js"></script>
+
+<!-- Angular modules definition -->
+<script src="app.module.js"></script>
+<script src="modules/navbar/navbar.module.js"></script>
+<script src="modules/login-page/login-page.module.js"></script>
+<script src="modules/main-page/main-page.module.js"></script>
+<script src="modules/game-list/game-list.module.js"></script>
+<script src="modules/subcription-page/subscription-page.module.js"></script>
+<script src="modules/sector-page/sector-page.module.js"></script>
+
+<script src="app.config.js"></script>
+
+<!-- Navbar -->
+<script src="modules/navbar/navbar.component.js"></script>
+<script src="modules/navbar/navbar.service.js"></script>
+
+<!-- Login -->
+<script src="modules/login-page/login-page.component.js"></script>
+<script src="modules/login-page/login-page.service.js"></script>
+
+<!-- Main Page -->
+<script src="modules/main-page/main-page.component.js"></script>
+<script src="modules/main-page/main-page.service.js"></script>
+
+<!-- Games -->
+<script src="modules/game-list/game-list.component.js"></script>
+<script src="modules/game-list/game-list.service.js"></script>
+
+<!-- Subscription -->
+<script src="modules/subcription-page/subscription-page.component.js"></script>
+<script src="modules/subcription-page/subscription-page.service.js"></script>
+
+<!-- Sector -->
+<script src="modules/sector-page/sector-page.component.js"></script>
+<script src="modules/sector-page/sector-page.service.js"></script>
+
+</html>
+

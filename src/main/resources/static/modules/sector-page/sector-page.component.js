@@ -1,6 +1,6 @@
 'use strict'
 angular.module('sectorPage').component('sectorPage', {
-  templateUrl : 'resources/static/templates/sector-page.template.html',
+  templateUrl : 'templates/sector-page.template.html',
   controller : [ 'SectorPageService', function SectorPageController(SectorPageService) {
 
     var main = this;

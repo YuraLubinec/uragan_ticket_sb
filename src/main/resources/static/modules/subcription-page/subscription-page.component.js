@@ -1,5 +1,5 @@
 angular.module('subscriptionPage').component('subscriptionPage', {
-  templateUrl: 'resources/static/templates/subscription-page.template.html',
+  templateUrl: 'templates/subscription-page.template.html',
   controller: [
     '$scope',
     'SubscriptionPageService',

@@ -1,6 +1,6 @@
 'use strict'
 angular.module('mainPage').component('mainPage', {
-  templateUrl : 'resources/static/templates/main-page.template.html',
+  templateUrl : 'templates/main-page.template.html',
   controller : [ 'MainPageService', function MainPageController(MainPageService) {
     var main = this;
     main.gameId = null;
