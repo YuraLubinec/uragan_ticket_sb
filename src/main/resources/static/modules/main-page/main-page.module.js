@@ -11,3 +11,9 @@ mainPage.directive('sectorDesc', function() {
     templateUrl : 'directives.templates/sectorDESC.html'
   };
 });
+
+mainPage.directive('sectorAscRev', function() {  
+  return {
+    templateUrl : 'directives.templates/sectorASCreverse.html'
+  };
+});

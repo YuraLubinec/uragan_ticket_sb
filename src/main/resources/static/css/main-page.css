@@ -16,17 +16,26 @@ main-page tr button {
 	color: #000000;
 }
 
+td button {
+	width: 100%;
+	padding : 0px;
+	font-size: 9px;
+	color: #000000;
+	border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
 .bordered {
 	border: solid 1px #ffffff;
 	border-radius: 3px;
-	padding: 15px;
+	padding: 5px 10px 5px 10px;
 	margin: 5px 0px;
 	color: #ffffff;
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
 main-page table {
-	margin-bottom: 15px;
+	margin-bottom: 5px;
+	
 }
 
 .view {
@@ -49,7 +58,18 @@ main-page table {
 	background-color: #008000;
 }
 
-.text-center h2 {
+.image { 
+	position: relative; 
+/* for IE 6 */
+}
+
+h2 { 
+	position: absolute; 
+	margin-top: 5px;
+	top: 0px;  
+	left: 10%;
+	right: 10%;
+	text-align: center;
 	color: #ffffff;
 }
 
