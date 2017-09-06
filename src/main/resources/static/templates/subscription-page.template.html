@@ -26,7 +26,7 @@
             </select>
               </div>
             </div>
-            
+
             <div class="form-group">
               <label class="control-lable" for="file">Сектор</label>
               <div class="">
@@ -35,8 +35,8 @@
             </select>
               </div>
             </div>
-            
-           <div class="form-group">
+
+            <div class="form-group">
               <label class="control-lable" for="file">Ряд</label>
               <div class="">
                 <select class="form-control" class="form-control" ng-model="$ctrl.currentSelectRow" ng-options="seat.row for seat in $ctrl.seatListBySector" ng-change="getAvailablePlace()" required="required">
@@ -51,12 +51,12 @@
             <option value="" disabled>Оберіть місце</option>
             </select>
               </div>
-            </div>           
-             <div class="form-group">
-                <div class="btn-group btn-group-justified">
-                  <a class="btn btn-success" ng-click="$ctrl.submit()" ng-disabled="subForm.$invalid">{{!$ctrl.subscription.id ? 'Створити' : 'Оновити'}}</a>
-                  <a class="btn btn-default" ng-click="$ctrl.reset()" class="btn btn-warning" ng-disabled="subForm.$pristine">Очистити форму</a>
-                </div>
+            </div>
+            <div class="form-group">
+              <div class="btn-group btn-group-justified">
+                <a class="btn btn-success" ng-click="$ctrl.submit()" ng-disabled="subForm.$invalid">{{!$ctrl.subscription.id ? 'Створити' : 'Оновити'}}</a>
+                <a class="btn btn-default" ng-click="$ctrl.reset()" class="btn btn-warning" ng-disabled="subForm.$pristine">Очистити форму</a>
+              </div>
             </div>
           </form>
           <div>
@@ -77,7 +77,7 @@
         </select>
 </div>
 <div class="col-lg-2 col-lg-offset-2 col-md-2 add-padding-top not-padding-right">
-  <input type="text" class="form-control" placeholder="search..." ng-model="filterText">
+  <input type="text" class="form-control" placeholder="шукати..." ng-model="filterText">
 </div>
 <div class="bordered col-md-12 col-lg-12 text-center">
   <div class="row">
@@ -86,39 +86,41 @@
         <table class="table">
           <thead>
             <tr>
-            
-              <th class="col-md-2 table-th-td"><a  class = "thA" href="" ng-click="sortBy('fullName')">П І П</a></th>
-              <th class="col-md-2 table-th-td"><a  class = "thA" href="" ng-click="sortBy('name')">СЕКТОР</a></th>
-              <th class="col-md-1 table-th-td"><a  class = "thA" href="" ng-click="sortBy('row')">РЯД</a></th>
-              <th class="col-md-1 table-th-td"><a  class = "thA" href="" ng-click="sortBy('place')">МІСЦЕ</a></th>
-              <th class="col-md-3 table-th-td">СЕЗОН</th>
-              <th class="col-md-3 table-th-td thA"></th>
+              <th class="col-md-2 col-lg-2 table-th-td"><a class="thA" href="" ng-click="sortBy('fullName')">П І П</a></th>
+              <th class="col-md-1 col-lg-1 table-th-td"><a class="thA" href="" ng-click="sortBy('name')">СЕКТОР</a></th>
+              <th class="col-md-1 col-lg-1 table-th-td"><a class="thA" href="" ng-click="sortBy('row')">РЯД</a></th>
+              <th class="col-md-1 col-lg-1 table-th-td"><a class="thA" href="" ng-click="sortBy('place')">МІСЦЕ</a></th>
+              <th class="col-md-2 col-lg-2 table-th-td">СЕЗОН</th>
+              <th class="col-md-2 col-lg-2 table-th-td"></th>
+              <th class="col-md-2 col-lg-2 table-th-td"></th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="sub in $ctrl.paginList | orderBy:propertyName:reverse | filter : {fullName: filterText} as filteredName">
-              <td class= "table-th-td"><span ng-bind="sub.fullName"></span></td>
+              <td class="table-th-td"><span ng-bind="sub.fullName"></span></td>
 
-              <td class= "table-th-td" ng-repeat="seat in $ctrl.seatList" ng-if="seat.id == sub.seat_id">
-                <span ng-repeat="sector in $ctrl.sectorList" ng-if ="sector.id == seat.sector_id" >
+              <td class="table-th-td" ng-repeat="seat in $ctrl.seatList" ng-if="seat.id == sub.seat_id">
+                <span ng-repeat="sector in $ctrl.sectorList" ng-if="sector.id == seat.sector_id">
                   <span ng-bind="sector.name"></span>
-                  </span>
+                </span>
               </td>
-              
-              <td  class= "table-th-td" ng-repeat="seat in $ctrl.seatList" ng-if="seat.id == sub.seat_id">
+
+              <td class="table-th-td" ng-repeat="seat in $ctrl.seatList" ng-if="seat.id == sub.seat_id">
                 <span ng-bind="seat.row"></span>
               </td>
-              
-              <td class= "table-th-td" ng-repeat="seat in $ctrl.seatList" ng-if="seat.id == sub.seat_id">
+
+              <td class="table-th-td" ng-repeat="seat in $ctrl.seatList" ng-if="seat.id == sub.seat_id">
                 <span ng-bind="seat.place"></span>
               </td>
-  
-              <td class= "table-th-td" ng-repeat="season in $ctrl.seasonList" ng-if="season.id == sub.season_id">
+
+              <td class="table-th-td" ng-repeat="season in $ctrl.seasonList" ng-if="season.id == sub.season_id">
                 <span ng-bind="season.years"></span>
               </td>
               <td>
-                <button type="button" ng-click="$ctrl.edit(sub.id)" data-toggle="modal" data-target="#myModal" class="btn btn-success custom-width">Редагувати</button>
-                <button type="button" ng-click="$ctrl.remove(sub.id)" class="btn btn-danger custom-width">Видалити</button>
+                <button ng-click="$ctrl.edit(sub.id)" data-toggle="modal" data-target="#myModal" class="btn btn-success">Редагувати</button>
+              </td>
+              <td>
+                <button ng-click="$ctrl.remove(sub.id)" class="btn btn-danger">Видалити</button>
               </td>
             </tr>
           </tbody>
