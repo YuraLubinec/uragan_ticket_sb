@@ -241,3 +241,7 @@ sector-page input.ng-invalid {
 sector-page input.ng-invalid:focus {
 	border-color: #FF0000 !important;
 }
+
+.printOut{
+	display: none;
+}

@@ -20,6 +20,23 @@ angular.module('mainPage').component('mainPage', {
 
     fetchAllGames();
     fetchAllSectors();
+    
+    function printElement(elem) {
+        var domClone = elem.cloneNode(true);
+        
+        var $printSection = document.getElementById("printSection");
+        
+        if (!$printSection) {
+            var $printSection = document.createElement("div");
+            $printSection.id = "printSection";
+            document.body.appendChild($printSection);
+        }
+        
+        $printSection.innerHTML = "";
+        
+        $printSection.appendChild(domClone);
+    }
+    
 
     function fetchAllSectors() {
       MainPageService.fetchAllSectors().then(function(response) {
@@ -67,7 +84,12 @@ angular.module('mainPage').component('mainPage', {
     }
 
     function createTicket(ticket) {
-      MainPageService.createTicket(ticket).then(function() {
+      //document.getElementById('printTicket').style.display = 'block';
+	  //printElement(document.getElementById("printTicket"));
+      printElement(document.getElementById('printTicket'));
+      window.print();
+       
+       MainPageService.createTicket(ticket).then(function() { 
         fetchAllGames();
       }, function(errResponse) {
         console.error('Error while saving ticket');

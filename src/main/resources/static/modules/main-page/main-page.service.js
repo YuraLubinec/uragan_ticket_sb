@@ -7,7 +7,7 @@ angular.module('mainPage').factory('MainPageService', [ '$http', '$q', function(
     createTicket : createTicket,
     fetchAllGames : fetchAllGames,
     deleteTicket: deleteTicket,
-    fetchSeason : fetchSeason
+    fetchSeason : fetchSeason,
   };
 
   return factory;

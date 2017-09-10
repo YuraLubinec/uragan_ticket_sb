@@ -1,0 +1,53 @@
+
+@media screen {
+    #printSection {
+        display: block !important;
+    }
+}
+@media print {
+
+	#printIn {
+		display: block!important;
+	}
+	
+    body * {
+        visibility:hidden;
+    }
+    #printSection, #printSection * {
+        visibility:visible;
+    }
+    #printSection {
+        position:absolute;
+        /* float: right; */
+        float:0px;
+        margin-top:350 px;
+    }
+    
+    #secName {
+    	margin-top: 10em;
+    	margin-left:5em;
+    	font-weight: bold;
+    	font-size:150%;
+    }
+    
+    #secRow {
+    	margin-top: 10em;
+    	margin-left:10em;
+    	font-weight: bold;
+    	font-size:150%;
+    }
+    #secPlace {
+    	margin-top: 10em;
+    	margin-left: 2em;
+    	font-weight: bold;
+    	font-size:150%;
+    
+    }
+    
+    #secPrice {
+    	margin-top: 10em;
+    	margin-left:4em;
+    	font-weight: bold;
+    	font-size:150%;
+    }
+}

@@ -1,4 +1,4 @@
-var mainPage = angular.module('mainPage', []);
+var mainPage = angular.module('mainPage', ['ngPrint']);
 
 mainPage.directive('sectorAsc', function() {  
   return {

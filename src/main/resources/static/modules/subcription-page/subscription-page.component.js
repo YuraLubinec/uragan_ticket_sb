@@ -116,6 +116,8 @@ angular.module('subscriptionPage').component('subscriptionPage', {
         if (main.subscription.id === null) {
           createSubscription(main.subscription);
         } else {
+        	console.log("main.subscription", main.subscription);
+        	console.log("main.subscription.id", main.subscription.id);
           updateSubscription(main.subscription, main.subscription.id);
         }
         angular.element('#myModal').modal('hide');
@@ -186,8 +188,8 @@ angular.module('subscriptionPage').component('subscriptionPage', {
       $scope.getAvailablePlace = function() {
         main.placeList = [];
         for (var i = 0; i < main.seatList.length; i++) {
-          if (main.seatList[i].sector_id == main.subscription.season_id && main.seatList[i].row === main.currentSelectRow
-            .row) {
+          if (main.seatList[i].sector_id === main.currentSelectSector.id
+        		  && main.seatList[i].row === main.currentSelectRow.row) {
             var isHaveId = 0;
             for (var j = 0; j < main.subscriptionALLList.length; j++) {
               if (main.subscriptionALLList[j].season_id === main.subscription.season_id) {
