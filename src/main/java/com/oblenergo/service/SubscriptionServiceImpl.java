@@ -45,8 +45,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     Subscription entity = dao.findById(subscription.getId());
     entity.setFullName(subscription.getFullName());
     entity.setSeason_id(subscription.getSeason_id());
-    entity.setSeat_id(subscription.getSeason_id());
-
+    entity.setSeat_id(subscription.getSeat_id());
   }
 
   @Transactional
