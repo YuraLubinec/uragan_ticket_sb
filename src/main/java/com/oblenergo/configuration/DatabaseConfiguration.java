@@ -19,44 +19,44 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan("com.oblenergo.DAO")
 @PropertySource("classpath:datasource.properties")
 public class DatabaseConfiguration {
-  
-  @Autowired
-  Environment environment;
 
-  @Bean
-  public BasicDataSource dataSource() {
+	@Autowired
+	Environment environment;
 
-    BasicDataSource dataSource = new BasicDataSource();
-    dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
-    dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
-    dataSource.setUsername(environment.getRequiredProperty("jdbc.password"));
-    dataSource.setPassword(environment.getRequiredProperty("jdbc.username"));
-    dataSource.setDefaultAutoCommit(false);
-    return dataSource;
-  }
+	@Bean
+	public BasicDataSource dataSource() {
 
-  private Properties hibernateProperties() {
+		BasicDataSource dataSource = new BasicDataSource();
+		dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
+		dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
+		dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
+		dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
+		dataSource.setDefaultAutoCommit(false);
+		return dataSource;
+	}
 
-    Properties properties = new Properties();
-    properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
-    properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
-    properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
-    return properties;
-  }
+	private Properties hibernateProperties() {
 
-  @Bean
-  public SessionFactory sessionFactory(BasicDataSource dataSource) {
+		Properties properties = new Properties();
+		properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
+		properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
+		properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
+		return properties;
+	}
 
-    LocalSessionFactoryBuilder sessionFactoryBuilder = new LocalSessionFactoryBuilder(dataSource);
-    sessionFactoryBuilder.scanPackages("com.oblenergo.model").addProperties(hibernateProperties());
-    return sessionFactoryBuilder.buildSessionFactory();
-  }
+	@Bean
+	public SessionFactory sessionFactory(BasicDataSource dataSource) {
 
-  @Bean
-  public HibernateTransactionManager hibernateTransactionManager(SessionFactory sessionFactory) {
+		LocalSessionFactoryBuilder sessionFactoryBuilder = new LocalSessionFactoryBuilder(dataSource);
+		sessionFactoryBuilder.scanPackages("com.oblenergo.model").addProperties(hibernateProperties());
+		return sessionFactoryBuilder.buildSessionFactory();
+	}
 
-    HibernateTransactionManager hibernateTransactionManager = new HibernateTransactionManager();
-    hibernateTransactionManager.setSessionFactory(sessionFactory);
-    return hibernateTransactionManager;
-  }
+	@Bean
+	public HibernateTransactionManager hibernateTransactionManager(SessionFactory sessionFactory) {
+
+		HibernateTransactionManager hibernateTransactionManager = new HibernateTransactionManager();
+		hibernateTransactionManager.setSessionFactory(sessionFactory);
+		return hibernateTransactionManager;
+	}
 }

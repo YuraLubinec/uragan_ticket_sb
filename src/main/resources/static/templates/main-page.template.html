@@ -81,10 +81,15 @@
 	<div class = "printOut">
 		<div id="printTicket">
 			<div id = "printIn">
-			   <p id="secName" > {{$ctrl.sector_name}}</p>
-			   <p id="secRow">{{$ctrl.seat_obj.row}}</p>
-			   <p id="secPlace">{{$ctrl.seat_obj.place}}</p>
-			   <p id="secPrice"  ng-repeat="sector in $ctrl.seatList" ng-if="sector.name === $ctrl.sector_name">{{sector.price}}</p>
+				<div class='seatDetails'>
+				   <p id="gameDate">{{$ctrl.currentGame.date}}</p>
+				   <p id="gameTime"> {{$ctrl.currentGame.time}}</p>
+				   <p class ="gameTeams"> {{$ctrl.currentGame.firstTeam}} - {{$ctrl.currentGame.secondTeam}}</p>
+				   <p id="secName" > {{$ctrl.sector_name}}</p>
+				   <p id="secRow">{{$ctrl.seat_obj.row}}</p>
+				   <p id="secPlace">{{$ctrl.seat_obj.place}}</p>
+				   <p id="secPrice"  ng-repeat="sector in $ctrl.seatList" ng-if="sector.name === $ctrl.sector_name">{{sector.price}}</p>
+				</div>
 			</div>
 		</div>
 	</div>

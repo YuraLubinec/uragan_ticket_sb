@@ -1,16 +1,12 @@
 
 @media screen {
     #printSection {
-        display: block !important;
+        display: none;
     }
 }
 @media print {
 
-	#printIn {
-		display: block!important;
-	}
-	
-    body * {
+	 body * {
         visibility:hidden;
     }
     #printSection, #printSection * {
@@ -18,36 +14,62 @@
     }
     #printSection {
         position:absolute;
-        /* float: right; */
-        float:0px;
-        margin-top:350 px;
+        left:0;
+        top:0;
+    }
+    
+    #gameDate {
+    	margin-left:3em;
+    	font-weight: bold;
+    	font-size:150%;
+     	word-break: keep-all;
+     	display: inline-block;
+    }
+    
+    #gameTime {
+    	margin-left:2em;
+     	word-break: keep-all;
+     	display: inline-block;
+    }
+    
+    .gameTeams {
+    	margin-left:2em;
+    	margin-right:5em;
+        width: 140px; 
+        font-weight: bold;
+    	font-size:150%;
+     	display: inline-block;
     }
     
     #secName {
-    	margin-top: 10em;
-    	margin-left:5em;
+    	margin-top: 5em;
+    	margin-left:8em;
     	font-weight: bold;
     	font-size:150%;
+    	display: inline-block;
     }
     
     #secRow {
-    	margin-top: 10em;
-    	margin-left:10em;
-    	font-weight: bold;
-    	font-size:150%;
-    }
-    #secPlace {
-    	margin-top: 10em;
+    	margin-top: 5em;
     	margin-left: 2em;
     	font-weight: bold;
     	font-size:150%;
+    	display: inline-block;
+    }
+    #secPlace {
+    	margin-top: 5em;
+    	margin-left: 2em;
+    	font-weight: bold;
+    	font-size:150%;
+    	display: inline-block;
     
     }
     
     #secPrice {
-    	margin-top: 10em;
-    	margin-left:4em;
+    	margin-top: 5em;
+    	margin-left:2em;
     	font-weight: bold;
     	font-size:150%;
+    	display: inline-block;
     }
 }
