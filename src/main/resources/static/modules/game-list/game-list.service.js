@@ -24,8 +24,11 @@
     var deferred = $q.defer();
     $http({
       method: 'POST',
-      url: REST_SERVICE_URI + "getSeatsIdTicket",
-      data: arr }).then(
+      url: REST_SERVICE_URI + "getSeatsIdTicket", 
+      data: arr,
+      headers: { 'Content-Transfer-Encoding': 'utf-8' }
+      
+    }).then(
         function(response) {
           deferred.resolve(response.data);
         },
@@ -114,8 +117,13 @@
 
   function createGame(game) {
     var deferred = $q.defer();
-    $http.post(REST_SERVICE_URI, game)
-      .then(
+    //$http.post(REST_SERVICE_URI, game)
+    $http({
+        method: 'POST',
+        url: REST_SERVICE_URI, 
+        data: game,
+        headers: { 'Content-Transfer-Encoding': 'utf-8' }   
+      }).then(
         function(response) {
           deferred.resolve(response.data);
         },
