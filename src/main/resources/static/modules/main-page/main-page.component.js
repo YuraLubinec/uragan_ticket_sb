@@ -14,9 +14,11 @@ angular.module('mainPage').component('mainPage', {
       game_id : null
     };
     main.submit = submit;
+    main.checkIfSubscribed = checkIfSubscribed;
     main.pointAllOccupiedSeats = pointAllOccupiedSeats;
     main.classChecker = classChecker;
     main.deleteT = deleteT;
+    main.currentSeasonSubscriptions = [];
 
     fetchAllGames();
     fetchAllSectors();
@@ -73,10 +75,10 @@ angular.module('mainPage').component('mainPage', {
 
     function pointAllSubscribedSeats() {
       MainPageService.fetchSeason(main.currentGame.season_id).then(function(response) {
+        main.currentSeasonSubscriptions = response.subscription;
         for (var i = 0; i < response.subscription.length; i++) {
           var occupiedSeat = angular.element('#' + response.subscription[i].seat_id);
           occupiedSeat.addClass('buttonStyleSubscription');
-          occupiedSeat.attr('disabled', true);
         }
       }, function(errResponse) {
         console.error('Error while fetching Season');
@@ -118,6 +120,12 @@ angular.module('mainPage').component('mainPage', {
     function classChecker() {
       if (main.seat_obj != null) {
         return angular.element('#' + main.seat_obj.id).hasClass('buttonStyle');
+      }
+    }
+
+    function checkIfSubscribed (){
+      if (main.seat_obj != null) {
+        return angular.element('#' + main.seat_obj.id).hasClass('buttonStyleSubscription');
       }
     }
 
