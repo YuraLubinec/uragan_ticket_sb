@@ -110,11 +110,6 @@ angular.module('mainPage').component('mainPage', {
     }
 
     function createTicket(ticket) {
-      console.log(main.currentGame);
-      main.printGame = main.currentGame.firstTeam + " - " + main.currentGame.secondTeam;
-      console.log(main.printGame);
-      //document.getElementById('printTicket').style.display = 'block';
-	  //printElement(document.getElementById("printTicket"));      
       printElement(document.getElementById('printTicket'));
       window.print();
        
