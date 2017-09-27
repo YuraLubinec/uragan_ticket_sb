@@ -3,10 +3,12 @@ angular.module('mainPage').component('mainPage', {
   templateUrl : 'templates/main-page.template.html',
   controller : [ 'MainPageService', function MainPageController(MainPageService) {
     var main = this;
+    var maxSizePrintGame = 25;
     main.gameId = null;
     main.seatList = [];
     main.gameList = [];
     main.currentGame = null;
+    main.printGame = null;
     main.seat_obj = null;
     main.ticket = {
       id : null,
@@ -58,10 +60,23 @@ angular.module('mainPage').component('mainPage', {
     }
 
     function pointAllOccupiedSeats() {
+      
       if (main.ticket.game_id != null) {
+   
         refreshCurrentGameById();
+        
       }
       if (main.currentGame != null) {
+        
+        console.log(main.currentGame);
+        
+        var nameGame = main.currentGame.firstTeam + " - " + main.currentGame.secondTeam;
+        main.printGame = correctSizePrintGame(nameGame);
+        
+        console.log(main.printGame);
+        console.log(main.printGame.length);
+        
+        
         angular.element('button').removeClass('buttonStyle');
         angular.element('button').removeClass('buttonStyleSubscription');
         angular.element('button').removeAttr('disabled');
@@ -73,6 +88,15 @@ angular.module('mainPage').component('mainPage', {
       }
     }
 
+    function correctSizePrintGame(printGame) {
+      if(printGame.length > maxSizePrintGame){
+        var countDeleteLetters = printGame.length - maxSizePrintGame;
+        return printGame.substring(0, printGame.length - countDeleteLetters);
+      }else{
+        return printGame;
+      }
+    }
+    
     function pointAllSubscribedSeats() {
       MainPageService.fetchSeason(main.currentGame.season_id).then(function(response) {
         main.currentSeasonSubscriptions = response.subscription;
@@ -86,8 +110,11 @@ angular.module('mainPage').component('mainPage', {
     }
 
     function createTicket(ticket) {
+      console.log(main.currentGame);
+      main.printGame = main.currentGame.firstTeam + " - " + main.currentGame.secondTeam;
+      console.log(main.printGame);
       //document.getElementById('printTicket').style.display = 'block';
-	  //printElement(document.getElementById("printTicket"));
+	  //printElement(document.getElementById("printTicket"));      
       printElement(document.getElementById('printTicket'));
       window.print();
        
@@ -110,6 +137,7 @@ angular.module('mainPage').component('mainPage', {
           main.currentGame = main.gameList[i];
         }
       }
+      
       main.ticket = {
         id : null,
         seat_id : null,

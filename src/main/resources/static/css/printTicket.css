@@ -19,7 +19,7 @@
     }
     
     #gameDate {
-    	margin-left:8em;
+    	margin-left:7em;
     	font-weight: bold;
     	font-size:110%;
      	word-break: keep-all;
@@ -28,15 +28,16 @@
     
     #gameTime {
     	margin-left:1em;
+    	width: 20px;
      	word-break: keep-all;
      	display: inline-block;
     }
     
-    .gameTeams {
-    	margin-left:2em;
-    	margin-right:5em;
-        width: 140px; 
-        font-weight: bold;
+    #gameTeams {
+    	margin-left:1em;
+    	margin-right:4em;
+      width: 280px; 
+      font-weight: bold;
     	font-size:150%;
      	display: inline-block;
     }
