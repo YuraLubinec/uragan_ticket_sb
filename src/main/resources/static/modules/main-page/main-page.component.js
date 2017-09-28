@@ -3,7 +3,7 @@ angular.module('mainPage').component('mainPage', {
   templateUrl : 'templates/main-page.template.html',
   controller : [ 'MainPageService', function MainPageController(MainPageService) {
     var main = this;
-    var maxSizePrintGame = 25;
+    var maxSizePrintGame = 23;
     main.gameId = null;
     main.seatList = [];
     main.gameList = [];

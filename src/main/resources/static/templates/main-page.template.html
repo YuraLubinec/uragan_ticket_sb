@@ -37,17 +37,17 @@
 	</div>
 	<div class="row">
 		<div class="col-lg-12 col-md-12">
-			<div ng-repeat="sector in $ctrl.seatList | orderBy: 'id':true" id="sector.id" class="col-lg-3 col-md-3 col-md-offset-2 col-lg-offset-2" ng-if="sector.id == 9 || sector.id == 10">
+			<div ng-repeat="sector in $ctrl.seatList | orderBy: 'id'" id="sector.id" class="col-lg-3 col-md-3 col-md-offset-2 col-lg-offset-2" ng-if="sector.id == 9 || sector.id == 10">
 				<sector-asc-rev></sector-asc-rev>
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-lg-12 col-md-12">
-			<div ng-repeat="sector in $ctrl.seatList" id="sector.id" class="col-lg-2 col-md-2" ng-if="sector.id == 12 || sector.id == 13 || sector.id == 14">
+			<div ng-repeat="sector in $ctrl.seatList | orderBy: 'id'" id="sector.id" class="col-lg-2 col-md-2" ng-if="sector.id == 12 || sector.id == 13 || sector.id == 14">
 				<sector-asc-rev></sector-asc-rev>
 			</div>
-			<div ng-repeat="sector in $ctrl.seatList | orderBy: 'id' " id="sector.id" class="col-lg-2 col-md-2" ng-if="sector.id == 11 || sector.id == 15 || sector.id == 16">
+			<div ng-repeat="sector in $ctrl.seatList | orderBy: 'id'" id="sector.id" class="col-lg-2 col-md-2" ng-if="sector.id == 11 || sector.id == 15 || sector.id == 16">
 				<sector-asc-rev></sector-asc-rev>
 			</div>
 
