@@ -4,6 +4,7 @@ angular.module('mainPage').component('mainPage', {
   controller : [ 'MainPageService', function MainPageController(MainPageService) {
     var main = this;
     var maxSizePrintGame = 23;
+    var countRows = 3;
     main.gameId = null;
     main.seatList = [];
     main.gameList = [];
@@ -20,6 +21,7 @@ angular.module('mainPage').component('mainPage', {
     main.pointAllOccupiedSeats = pointAllOccupiedSeats;
     main.classChecker = classChecker;
     main.deleteT = deleteT;
+    main.isDrawLine = isDrawLine;
     main.currentSeasonSubscriptions = [];
 
     fetchAllGames();
@@ -168,6 +170,14 @@ angular.module('mainPage').component('mainPage', {
       }
       angular.element('#myModal').modal('hide');
     }
+
+      function isDrawLine(place, listPlaces) {
+          if (listPlaces/countRows != place) {
+              if (place == 5 || place == 10 || place == 15 || place == 20 || place == 25) {
+                return true;
+              }
+          }
+      }
 
   } ]
 });

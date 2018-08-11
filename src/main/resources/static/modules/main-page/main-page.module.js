@@ -17,3 +17,15 @@ mainPage.directive('sectorAscRev', function() {
     templateUrl : 'directives.templates/sectorASCreverse.html'
   };
 });
+
+mainPage.directive('sectorDescLine', function () {
+    return {
+      templateUrl: 'directives.templates/sectorDESCline.html'
+    };
+});
+
+mainPage.directive('sectorAscRevLine', function () {
+    return {
+        templateUrl : 'directives.templates/sectorASCreverseLine.html'
+    };
+});
