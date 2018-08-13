@@ -249,3 +249,7 @@ sector-page input.ng-invalid:focus {
 .verticalLine {
 	border-right: thick solid #0f0f0f;
 }
+
+.verticalLineLeft {
+	border-left: thick solid #0f0f0f;
+}
